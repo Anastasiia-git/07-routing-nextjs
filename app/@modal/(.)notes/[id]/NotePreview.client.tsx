@@ -1,16 +1,19 @@
-import ModalRoute from "@/components/Modal/ModalRoute";
-import NoteDetailsServer from "@/app/(public routes)/notes/[id]/NoteDetailsServer";
+"use client";
 
-type Props = {
-  params: Promise<{ id: string }>;
-};
+import { useRouter } from "next/navigation";
+import Modal from "@/components/Modal/Modal";
+import css from "./NotePreview.module.css";
 
-export default async function NotePreview({ params }: Props) {
-  const { id } = await params;
+export default function NotePreviewClient({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const router = useRouter();
 
   return (
-    <ModalRoute>
-      <NoteDetailsServer id={id} />
-    </ModalRoute>
+    <Modal onClose={() => router.back()}>
+      <div className={css.container}>{children}</div>
+    </Modal>
   );
 }
