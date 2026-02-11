@@ -1,4 +1,4 @@
-import NotesFilteredClient from "./NotesFilteredClient";
+import NotesFilteredClient from "./Notes.client";
 
 type Props = {
   params: Promise<{ slug: string[] }>;
