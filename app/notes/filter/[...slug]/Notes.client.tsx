@@ -10,7 +10,6 @@ import Pagination from "@/components/Pagination/Pagination";
 import NoteList from "@/components/NoteList/NoteList";
 import NoteForm from "@/components/NoteForm/NoteForm";
 import Modal from "@/components/Modal/Modal";
-
 import { fetchNotes } from "@/lib/api";
 
 export default function NotesFilteredClient({ tag }: { tag?: string }) {
@@ -37,13 +36,15 @@ export default function NotesFilteredClient({ tag }: { tag?: string }) {
       <header className={css.toolbar}>
         <SearchBox value={search} onChange={onChange} />
 
-        {data && data.totalPages > 1 && (
-          <Pagination
-            page={page}
-            totalPages={data.totalPages}
-            onPageChange={setPage}
-          />
-        )}
+        <div className={css.paginationWrap}>
+          {data && data.totalPages > 1 && (
+            <Pagination
+              page={page}
+              totalPages={data.totalPages}
+              onPageChange={setPage}
+            />
+          )}
+        </div>
 
         <button onClick={() => setModal(true)} className={css.button}>
           Create note +
