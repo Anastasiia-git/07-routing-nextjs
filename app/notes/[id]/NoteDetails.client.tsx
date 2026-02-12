@@ -30,7 +30,7 @@ export default function NoteDetailsClient() {
 
   return (
     <main className={css.main}>
-      <button className={css.backBtn} onClick={handleGoBack}>
+      <button className={css.cancelButton} onClick={handleGoBack}>
         ← Back
       </button>
       <div className={css.container}>
